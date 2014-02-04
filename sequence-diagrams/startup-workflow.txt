@@ -1,0 +1,19 @@
+title Startup Workflow
+
+#Feel free to edit, just make sure to update the image
+#and the text
+
+Phone->Phone: open app\ndisplay "Welcome"
+
+Phone->+Computational\nBackend: Send location calculation data
+
+Computational\nBackend->+Storage\nBackend: request list of possible nodes
+
+Storage\nBackend-->-Computational\nBackend: return list of possible nodes, and their photos
+
+Computational\nBackend->Computational\nBackend: compute closest room/node
+
+
+Computational\nBackend-->-Phone: Send room ID and photo
+
+Phone->Phone:display "You are here"
