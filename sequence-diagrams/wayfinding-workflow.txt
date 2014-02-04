@@ -1,0 +1,24 @@
+title Wayfinding Workflow
+
+#Feel free to edit, just make sure to update the image
+#and the text
+
+Phone->Phone: User requests route\nfrom current node\n to node x
+
+Phone->+Computational\nBackend: send wayfinding request, A->X
+
+Computational\nBackend->+Storage\nBackend: request current graph
+
+Storage\nBackend-->-Computational\nBackend: return current graph
+
+Computational\nBackend->Computational\nBackend: compute path, A->X
+
+Computational\nBackend->+Storage\nBackend: request edge pictures for each step
+
+Storage\nBackend-->-Computational\nBackend: return edge pictures
+
+
+Computational\nBackend-->-Phone: Send path, direction sequence,\n and edge pictures
+
+Phone->Phone:begin routing
+
