@@ -1,0 +1,41 @@
+Naming Schemes
+________________________________________________________________________________
+
+This document will provide the naming schemes used for the nodes in the backend's
+graph.
+
+Types: (attribute key="type")
+    - room
+        * currently includes all rooms. {ballroom, meeting room, etc}
+        * ID (attribute key = "id") is the room number. For example, "id":107 is
+          room 107 on the 1st floor.
+    - bathroom
+        * currently there is one "bathroom" node for each set of male & female
+          bathrooms.
+        * ID is the letter "B", the floor number, then an arbitrary 1 digit 
+          identifier for which bathroom it is on that floor. For example, the 
+          first floor has 4 bathrooms. They are nodes B11, B12, B13, and B14.
+    - stairs
+        * currently there is one "stairs" node for both the up and down stairs.
+        * ID is the letter "S", the floor number, then an arbitrary 1 digit 
+          identifier for which staircase it is on that floor. For example, the 
+          first floor has 1 staircase. It is S11. The floor above it (Floor 1M)
+          has a linked staircase, S1m1.
+    - elevator
+        * Very similar to stairs, but the ID starts with the letter "E"
+    - hallway
+        * There are two kinds of hallway nodes currently.
+            - Room entrances: these hallway nodes are named with a letter
+              "h", then the room number they are in front of. So in front of
+              room 102 is hallway node h102. DO NOT RELY ON THIS in your code.
+              for simplicity's sake, when 2 rooms are across from each other,
+              there is only 1 halway node between them. Therefore there is no
+              h101, because 101 is in front of both h102 and h103.
+            - Corners: These are placed at any point in a hallway where a person
+              might make a turn. these are named with a letter "C", the floor
+              number, then their arbitrary identifier, similar to bathrooms stairs
+              and elevators.
+
+
+
+
