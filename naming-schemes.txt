@@ -1,10 +1,27 @@
 Naming Schemes
 ________________________________________________________________________________
 
-This document will provide the naming schemes used for the nodes in the backend's
+This document will provide the naming schemes used for the backend's
 graph.
 
-Types: (attribute key="type")
+iBeacons:
+    - Currently, the iBeacons are associated with a node. The node's beacons are stored as a
+      comma-separated list of iBeacon minors. For testing, we currently have:
+      
+      Node  iBeacon minor
+      101   1661
+      102   1662
+      h-102 1663
+      
+      This may change if we get more beacons that have overlapping minors.
+
+Events:
+    - Events should be self-explanatory
+    - the exception is that the "startTime" and "endTime" attributes are multiples of
+      60, corresponding to military time. So "startTime":1140 => 1140/60 = 19 => 19:00 
+      = 7:00 PM
+
+Node Types: (attribute key="type")
     - room
         * currently includes all rooms. {ballroom, meeting room, etc}
         * ID (attribute key = "id") is the room number. For example, "id":107 is
