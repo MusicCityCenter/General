@@ -12,30 +12,35 @@ Types: (attribute key="type")
     - bathroom
         * currently there is one "bathroom" node for each set of male & female
           bathrooms.
-        * ID is the letter "B", the floor number, then an arbitrary 1 digit 
-          identifier for which bathroom it is on that floor. For example, the 
-          first floor has 4 bathrooms. They are nodes B11, B12, B13, and B14.
+        * ID is the letter "B", hyphen, the floor number, hyphen,  then an arbitrary 1 
+          digit identifier for which bathroom it is on that floor. For example, 
+          the first floor has 4 bathrooms. They are nodes B-1-1, B-1-2, B-1-3, and B-1-4.
     - stairs
         * currently there is one "stairs" node for both the up and down stairs.
-        * ID is the letter "S", the floor number, then an arbitrary 1 digit 
+        * ID is the letter "S", hyphen, the floor number, hyphen, then an arbitrary 1 digit 
           identifier for which staircase it is on that floor. For example, the 
-          first floor has 1 staircase. It is S11. The floor above it (Floor 1M)
-          has a linked staircase, S1m1.
+          first floor has 1 staircase. It is S-1-1. The floor above it (Floor 1M)
+          has a linked staircase, S-1m-1.
     - elevator
         * Very similar to stairs, but the ID starts with the letter "E"
     - hallway
         * There are two kinds of hallway nodes currently.
             - Room entrances: these hallway nodes are named with a letter
-              "h", then the room number they are in front of. So in front of
-              room 102 is hallway node h102. DO NOT RELY ON THIS in your code.
+              "h", hyphen, then the room number they are in front of. So in front of
+              room 102 is hallway node h-102. DO NOT RELY ON THIS in your code.
               for simplicity's sake, when 2 rooms are across from each other,
               there is only 1 halway node between them. Therefore there is no
-              h101, because 101 is in front of both h102 and h103.
+              h-101, because 101 is in front of both h-102 and h-103.
             - Corners: These are placed at any point in a hallway where a person
-              might make a turn. these are named with a letter "C", the floor
-              number, then their arbitrary identifier, similar to bathrooms stairs
-              and elevators.
-
+              might make a turn. these are named with a letter "C", hyphen, the floor
+              number, hyphen, then their arbitrary identifier, similar to bathrooms 
+              stairs and elevators.
+    - image-boundry
+        * These are being used to help us bisect the large image of all the 
+          floors. There are currently two nodes per floor, a TL (top left) and
+          a BR (bottom right). The node ID will be the floor number and the
+          corner identifier, separated by a hyphen. Ergo, the two nodes that
+          mark the corners for floor 1M are: "1m-TL" and "1m-BR".
 
 
 
